@@ -242,45 +242,42 @@ export default function BusinessDetailsPage() {
                     </div>
                   </Card> */}
 
-{members.map((member) => (
-            <Card 
-              key={member.id}
-              className='w-full h-[8.75rem] bg-neutral-50 border border-neutral-200 overflow-hidden'
-            >
-              <div className='w-full h-[3.75rem] px-6 flex items-center justify-between border-b border-neutral-200'>
-                <span className='text-sm text-gray-500'>Member Details</span>
-                <span className='flex items-center gap-6'>
-                  <button className='hover:text-blue-600 transition-colors'>
-                    <Pencil className='h-4 w-4' />
-                  </button>
-                  <button 
-                    className='hover:text-red-600 transition-colors'
-                    onClick={() => removeMember(member.id)}
-                  >
-                    <Trash2 className='h-4 w-4' />
-                  </button>
-                </span>
-              </div>
-              <div className='w-full h-[5rem] px-6 flex items-center gap-8 bg-white'>
-                <div className='w-12 h-12 bg-neutral-200 rounded-full flex items-center justify-center'>
-                  {getInitials(member.firstName, member.lastName)}
-                </div>
-                <div className='flex flex-col'>
-                  <span className='font-medium'>
-                    {`${member.firstName} ${member.lastName}`}
-                  </span>
-                  <span className='text-sm text-gray-500'>
-                    {getFullAddress(member)}
-                  </span>
-                </div>
-                <div className='ml-auto'>
-                  <span className='text-sm text-gray-500'>
-                    Equity: {member.equity}
-                  </span>
-                </div>
-              </div>
-            </Card>
-          ))}
+                  {members.map((member) => (
+                    <Card
+                      key={member.id}
+                      className='w-full h-[8.75rem] bg-neutral-50 border border-neutral-200 overflow-hidden'
+                    >
+                      <div className='w-full h-[3.75rem] px-6 flex items-center justify-between border-b border-neutral-200'>
+                        <span className='text-sm text-gray-500'>
+                          Member Details
+                        </span>
+                        <span className='flex items-center gap-6'>
+                          <button className='hover:text-blue-600 transition-colors'>
+                            <Pencil className='h-4 w-4' />
+                          </button>
+                          <button
+                            className='hover:text-red-600 transition-colors'
+                            onClick={() => removeMember(member.id)}
+                          >
+                            <Trash2 className='h-4 w-4' />
+                          </button>
+                        </span>
+                      </div>
+                      <div className='w-full h-[5rem] px-6 flex items-center gap-8 bg-white'>
+                        <div className='w-12 h-12 bg-neutral-200 rounded-full flex items-center justify-center'>
+                          {getInitials(member.firstName, member.lastName)}
+                        </div>
+                        <div className='flex flex-col'>
+                          <span className='font-medium'>
+                            {`${member.firstName} ${member.lastName}`}
+                          </span>
+                          <span className='text-sm text-gray-500'>
+                            {getFullAddress(member)}
+                          </span>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
 
                   <span
                     className='w-full h-16 flex items-center justify-center gap-2 bg-neutral-50 border border-neutral-300 rounded-lg text-blue-base text-sm cursor-pointer'

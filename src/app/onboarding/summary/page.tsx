@@ -13,7 +13,11 @@ import {
 } from '@/app/components/icons/Icons';
 import OrderSummary from '@/app/components/OrderSummary';
 
+import { useOnboardingStore } from '../../../../lib/store/onboarding';
+
 export default function SummaryPage() {
+const {businessType} = useOnboardingStore();
+
   const handleEdit = (section: string) => {
     console.log(`Edit ${section} clicked`);
   };
@@ -57,7 +61,7 @@ export default function SummaryPage() {
                     </div>
                     <div>
                       <p className='text-sm text-gray-500'>Business Type</p>
-                      <p className='font-medium mt-1'>Private Limited</p>
+                      <p className='font-medium mt-1 uppercase'>{businessType.designator}</p>
                     </div>
                   </div>
                 </Card>
@@ -83,19 +87,18 @@ export default function SummaryPage() {
                   <div className='flex gap-4 sm:gap-6'>
                     <div className='flex flex-col w-[48%]'>
                       <p className='text-sm text-gray-500'>Company Name 1</p>
-                      <p className='font-medium mt-1'>Apple</p>
+                      <p className='font-medium mt-1'>{businessType.businessName}</p>
                     </div>
                     <div className='flex flex-col w-[48%]'>
                       <p className='text-sm text-gray-500'>Company Name 1</p>
-                      <p className='font-medium mt-1'>Apple Continental</p>
+                      <p className='font-medium mt-1'>{businessType.alternateName}</p>
                     </div>
                   </div>
                   <div className='flex gap-4 sm:gap-6'>
                     <div className='flex flex-col w-full'>
                       <p className='text-sm text-gray-500'>Description</p>
                       <p className='font-medium mt-1'>
-                        InnovateTech empowers businesses with cutting-edge tools
-                        to streamline operations and boost productivity.
+                        {businessType.businessDescription}
                       </p>
                     </div>
                   </div>
