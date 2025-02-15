@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import DashboardNavbar from '../components/dashboard/DashboardNavbar';
-// import UpdateInfo from '../components/UpdateInfo';
 
 export const metadata: Metadata = {
   title: 'Dashboard - Setup Account',
