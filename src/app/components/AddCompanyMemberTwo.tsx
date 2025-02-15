@@ -30,7 +30,7 @@ const AddCompanyMemberTwo = () => {
     state: '',
     city: '',
     zipCode: '',
-    equity: '10%',
+    equity: '',
   });
 
   const handleSubmit = () => {
@@ -103,8 +103,10 @@ const AddCompanyMemberTwo = () => {
                 <Label htmlFor='city' className='text-sm font-medium'>
                   Nationality
                 </Label>
-                <Select value={formData.nationality}
-                  onValueChange={(value) => handleChange('nationality', value)}>
+                <Select
+                  value={formData.nationality}
+                  onValueChange={(value) => handleChange('nationality', value)}
+                >
                   <SelectTrigger id='country' className=''>
                     <SelectValue placeholder='Select Nationality' />
                   </SelectTrigger>
@@ -140,8 +142,10 @@ const AddCompanyMemberTwo = () => {
                 <Label htmlFor='state' className='text-sm font-medium'>
                   State
                 </Label>
-                <Select value={formData.state}
-                  onValueChange={(value) => handleChange('state', value)}>
+                <Select
+                  value={formData.state}
+                  onValueChange={(value) => handleChange('state', value)}
+                >
                   <SelectTrigger id='state' className='bg-background'>
                     <SelectValue placeholder='Select State' />
                   </SelectTrigger>
@@ -156,8 +160,10 @@ const AddCompanyMemberTwo = () => {
                 <Label htmlFor='city' className='text-sm font-medium'>
                   City
                 </Label>
-                <Select value={formData.city}
-                  onValueChange={(value) => handleChange('city', value)}>
+                <Select
+                  value={formData.city}
+                  onValueChange={(value) => handleChange('city', value)}
+                >
                   <SelectTrigger id='city' className='bg-background'>
                     <SelectValue placeholder='Select City' />
                   </SelectTrigger>
@@ -190,11 +196,17 @@ const AddCompanyMemberTwo = () => {
             <h3 className='text-base font-semibold mr-4 text-neutral-900'>
               Equity
             </h3>
-            <h4 className='text-sm font-medium text-neutral-500'>
-              Percentage of Ownership
-            </h4>
-            <div className='w-1/2 h-[2.5rem] rounded-[.5rem] bg-neutral-50 flex items-center px-6'>
-              10%
+            <div className='flex-[1/2] w-[49%]'>
+              <Label htmlFor='equity' className='text-sm font-medium'>
+                Percentage of Ownership
+              </Label>
+              <Input
+                id='equity'
+                value={formData.equity}
+                onChange={(e) => handleChange('equity', e.target.value)}
+                placeholder='Enter percentage of ownership: 0% - 100%'
+                className='mt-2 border border-gray-300 rounded-md p-2 focus:border-blue-light focus:shadow-custom-combined focus-visible:outline-none'
+              />
             </div>
           </div>
           <div className='mt-8 flex justify-between'>

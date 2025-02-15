@@ -21,7 +21,7 @@ interface Member {
   equity: string;
 }
 
-interface ContactDetails {
+export interface ContactDetails {
   firstName: string;
   lastName: string;
   email: string;
@@ -90,34 +90,9 @@ export const useOnboardingStore = create<OnboardingState>()(
           businessType: { ...state.businessType, ...data },
         })),
       setContactDetails: (data) =>
-        set((state) => {
-          const newState = {
-            contactDetails: { ...state.contactDetails, ...data },
-          };
-          
-          // If this is the first submission and there are no members yet,
-          // add the contact details person as the first member
-          if (state.members.length === 0) {
-            const { firstName, lastName, address, state: memberState, city, zipCode } = newState.contactDetails;
-            if (firstName && lastName) {
-              return {
-                ...newState,
-                members: [{
-                  id: crypto.randomUUID(),
-                  firstName,
-                  lastName,
-                  nationality: 'nigerian', // Default value
-                  address,
-                  state: memberState,
-                  city,
-                  zipCode,
-                  equity: '10%', // Default value
-                }],
-              };
-            }
-          }
-          return newState;
-        }),
+        set((state) => ({
+          contactDetails: { ...state.contactDetails, ...data },
+        })),
       setBusinessDetails: (data) =>
         set((state) => ({
           businessDetails: { ...state.businessDetails, ...data },

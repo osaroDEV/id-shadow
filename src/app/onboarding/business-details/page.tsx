@@ -221,27 +221,6 @@ export default function BusinessDetailsPage() {
                 <h2 className='text-lg font-medium'>Member list</h2>
 
                 <div className='space-y-4'>
-                  {/* <Card className='w-full h-[8.75rem] bg-neutral-50 border border-neutral-200 overflow-hidden'>
-                    <div className='w-full h-[3.75rem] px-6 flex items-center justify-between border-b border-neutral-200'>
-                      <span className='text-sm text-gray-500'>Member One</span>
-                      <span className='flex items-center gap-6'>
-                        <Pencil className='h-4 w-4' />
-                        <Trash2 className='h-4 w-4' />
-                      </span>
-                    </div>
-                    <div className='w-full h-[5rem] px-6 flex items-center gap-8 bg-white'>
-                      <div className='w-12 h-12 bg-neutral-200 rounded-full flex items-center justify-center'>
-                        MM
-                      </div>
-                      <div className='flex flex-col'>
-                        <span className='font-medium'>Martin Mark</span>
-                        <span className='text-sm text-gray-500'>
-                          No. 2, Yaba Close, Surulere Lagos
-                        </span>
-                      </div>
-                    </div>
-                  </Card> */}
-
                   {members.map((member) => (
                     <Card
                       key={member.id}
