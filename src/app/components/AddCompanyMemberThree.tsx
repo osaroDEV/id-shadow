@@ -26,7 +26,7 @@ const AddCompanyMemberThree = () => {
   const { closeModal, prevStep } = useModalStore();
 
   return (
-    <div className='bg-[rgba(0,0,0,.3)] w-screen h-screen absolute top-0 left-0'>
+    <div className='bg-[rgba(0,0,0,.3)] w-screen h-screen fixed top-0 left-0'>
       <div className='fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[45.25rem] h-[calc(100vh*.8)] bg-white border border-neutral-300 rounded-[.5rem] overflow-x-hidden overflow-y-scroll'>
         <div className='bg-neutral-50 w-full h-[3.5rem] flex items-center justify-between p-6'>
           <div>

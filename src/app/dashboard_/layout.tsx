@@ -1,18 +1,25 @@
+'use client'
+
 import SubDashboardNavbar from '@/app/components/dashboard/SubDashboardNavbar';
 import Sidebar from '../components/dashboard/Sidebar';
+import EditCompanyMember from '../components/EditCompanyMember';
+import useModalStore from '../../../lib/store/useModalStore';
 
-export const metadata = {
-  title: 'Dashboard - Recommendation',
-  description: 'View your recommendations',
-};
+// export const metadata = {
+//   title: 'Dashboard - Recommendation',
+//   description: 'View your recommendations',
+// };
 
-export default function RecommendationLayout({
+export default function SharedDashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+const {isEditCompanyMemberModalOpen} = useModalStore()
+
   return (
     <div className='w-screen bg-neutral-50 relative'>
+      {isEditCompanyMemberModalOpen && <EditCompanyMember />}
       <SubDashboardNavbar />
       <div className='w-full flex'>
         <Sidebar />

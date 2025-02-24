@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   RvysionIcon,
   CaretUpDownIcon,
@@ -43,30 +44,30 @@ const Sidebar = () => {
           </h3>
           <nav>
             <ul>
-              <li className='flex items-center gap-2 py-2 xl:px-2 xxl:px-5'>
+              <Link className='flex items-center gap-2 py-2 xl:px-2 xxl:px-5' href='/dashboard_/company-info'>
                 <BusinessDashboardIcon />
                 <span className='xl:text-xs xxl:text-sm text-neutral-900 font-semibold'>
                   Company Info
                 </span>
-              </li>
-              <li className='flex items-center gap-2 py-2 xl:px-2 xxl:px-5'>
+              </Link>
+              <Link className='flex items-center gap-2 py-2 xl:px-2 xxl:px-5' href='/dashboard_/order-history'>
                 <ScrollDashboardIcon />
                 <span className='xl:text-xs xxl:text-sm text-neutral-900 font-semibold'>
                   Order history/ Reciepts{' '}
                 </span>
-              </li>
-              <li className='flex items-center gap-2 py-2 xl:px-2 xxl:px-5'>
+              </Link>
+              <Link className='flex items-center gap-2 py-2 xl:px-2 xxl:px-5' href='/dashboard_/compliance-documents'>
                 <FilesDashboardIcon />
                 <span className='xl:text-xs xxl:text-sm text-neutral-900 font-semibold'>
                   Compliance Documents
                 </span>
-              </li>
-              <li className='flex items-center gap-2 py-2 xl:px-2 xxl:px-5'>
+              </Link>
+              <Link className='flex items-center gap-2 py-2 xl:px-2 xxl:px-5' href='/dashboard_/services'>
                 <ToolboxDashboardIcon />
                 <span className='xl:text-xs xxl:text-sm text-neutral-900 font-semibold'>
                   Services
                 </span>
-              </li>
+              </Link>
             </ul>
           </nav>
         </div>

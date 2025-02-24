@@ -11,7 +11,7 @@ export default {
   	extend: {
 		screens: {
 			'xxl': '1440px',
-		  },
+		  },		
   		colors: {
   			neutral: {
   				'0': '#FFFFFF',
@@ -25,8 +25,9 @@ export default {
   				'900': '#020617',
 				'1000': '#030404'
   			},
-  			grey: {
-  				'100': '#F5F7F8'
+  			pink: {
+  				lighter: '#FDEBFF',
+  				base: '#E255F2',
   			},
   			disabled: {
   				'300': '#D3D5DA'
@@ -43,6 +44,7 @@ export default {
   		},
 		  boxShadow: {
 			'custom-combined': '0px_0px_0px_4px_#E9EEFF, 0px_1px_2px_0px_#1018280D',
+			'custom': '0px 1px 2px 0px rgba(82, 88, 102, 0.06)',
 		  },
   		borderRadius: {
   			base: '0.625rem',

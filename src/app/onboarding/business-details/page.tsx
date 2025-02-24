@@ -10,6 +10,8 @@ import {
   HouseIcon,
   MapPinAreaIcon,
   MapPinLineIcon,
+  PencilSimpleLine,
+  Trash,
   UsersFourIcon,
 } from '@/app/components/icons/Icons';
 import OrderSummary from '@/app/components/OrderSummary';
@@ -232,13 +234,13 @@ export default function BusinessDetailsPage() {
                         </span>
                         <span className='flex items-center gap-6'>
                           <button className='hover:text-blue-600 transition-colors'>
-                            <Pencil className='h-4 w-4' />
+                            <PencilSimpleLine />
                           </button>
                           <button
                             className='hover:text-red-600 transition-colors'
                             onClick={() => removeMember(member.id)}
                           >
-                            <Trash2 className='h-4 w-4' />
+                            <Trash />
                           </button>
                         </span>
                       </div>

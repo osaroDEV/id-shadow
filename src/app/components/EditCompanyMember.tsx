@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import React from 'react';
 import { CloseIcon } from './icons/Icons';
-import { Checkbox } from '@/components/ui/checkbox';
+import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@radix-ui/react-label';
@@ -14,17 +14,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import DocumentUpload from './DocumentUpload';
+// import PhoneInput from 'react-phone-number-input';
 import useModalStore from '../../../lib/store/useModalStore';
 import { useOnboardingStore } from '../../../lib/store/onboarding';
 
-const AddCompanyMemberTwo = () => {
-  const { closeModal } = useModalStore();
+const EditCompanyMember = () => {
+  const { closeEditCompanyMemberModal } = useModalStore();
 
-  const { addMember, contactDetails } = useOnboardingStore();
+  const { contactDetails, setContactDetails } = useOnboardingStore();
+
+  const { addMember } = useOnboardingStore();
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    email: '',
     nationality: '',
     address: '',
     state: '',
@@ -34,8 +35,8 @@ const AddCompanyMemberTwo = () => {
   });
 
   const handleSubmit = () => {
-    addMember(formData);
-    closeModal();
+    // addMember(formData);
+    closeEditCompanyMemberModal();
   };
 
   const handleChange = (field: string, value: string) => {
@@ -43,101 +44,101 @@ const AddCompanyMemberTwo = () => {
   };
 
   return (
-    <div className='bg-[rgba(0,0,0,.3)] w-screen h-screen fixed top-0 left-0'>
-      <div className='fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[45.25rem] h-[calc(100vh*.8)] bg-white border border-neutral-300 rounded-[.5rem] overflow-x-hidden overflow-y-scroll'>
-        <div className='bg-neutral-50 w-full h-[3.5rem] flex items-center justify-between p-6'>
+    <div className='bg-[rgba(0,0,0,.3)] w-screen h-screen fixed top-0 left-0 z-50'>
+      <div className='fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[37.5rem] h-[38.4375rem] bg-white border border-neutral-300 rounded-[.5rem] overflow-x-hidden overflow-y-scroll'>
+        <div className='bg-neutral-50 w-full h-[3.625rem] flex items-center justify-between p-6'>
           <div>
-            <span className='font-semibold'>Add Company Member</span>
+            <span className='font-semibold'>User Info</span>
           </div>
-          <span onClick={closeModal}>
+          <span onClick={closeEditCompanyMemberModal}>
             <CloseIcon />
           </span>
         </div>
-        <Card className='p-6 '>
-          <div className='flex justify-center items-center w-full h-auto'>
-            <div className='w-full flex items-center gap-2 h-[3rem] px-3 bg-neutral-50 rounded-[.5rem]'>
-              <Checkbox />{' '}
-              <span className='text-sm text-blue-base font-semibold'>
-                {contactDetails?.firstName} {contactDetails?.lastName}
-              </span>
+        <Card className='p-6'>
+          <div className='flex items-center w-full h-[3rem]'>
+            <div className='w-1/2 h-full flex items-center gap-4'>
+              <Image
+                src='/images/contact.png'
+                alt='contact person'
+                width={40}
+                height={40}
+              />
+              <Select value='Priscilla Ujomu'>
+                <SelectTrigger id='country' className='bg-[#F8FAFC]'>
+                  <SelectValue placeholder='Select Person' />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value='Priscilla Ujomu'>
+                    Priscilla Ujomu
+                  </SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
           <hr className='m-[2rem_auto_2rem_auto] w-full border border-neutral-200' />
-          <div className='flex items-center mb-4'>
-            <h3 className='text-base font-semibold mr-4 text-neutral-900'>
-              Individual Details
-            </h3>
-          </div>
           <div className='space-y-6'>
             <div className='flex gap-4'>
               <div className='flex-1'>
-                <Label htmlFor='firstName' className='text-sm font-medium'>
-                  First Name
+                <Label htmlFor='email' className='text-sm font-medium'>
+                  Email
                 </Label>
                 <Input
-                  id='firstName'
-                  type='text'
-                  value={formData.firstName}
-                  onChange={(e) => handleChange('firstName', e.target.value)}
-                  placeholder='Enter First Name'
+                  id='email'
+                  type='email'
+                  value={formData.email}
+                  onChange={(e) => handleChange('email', e.target.value)}
+                  placeholder='Enter Email'
                   className='mt-2 border border-gray-300 rounded-md p-2 focus:border-blue-light focus:shadow-custom-combined focus-visible:outline-none'
                 />
               </div>
               <div className='flex-1'>
-                <Label htmlFor='lastName' className='text-sm font-medium'>
-                  Last Name
-                </Label>
+                <Label htmlFor='phone'>Phone Number</Label>
                 <Input
-                  id='lastName'
+                  id='phone number'
                   type='text'
-                  value={formData.lastName}
-                  onChange={(e) => handleChange('lastName', e.target.value)}
-                  placeholder='Enter Last Name'
+                  value={formData.email}
+                  onChange={(e) => handleChange('email', e.target.value)}
+                  placeholder='Enter Phone Number'
                   className='mt-2 border border-gray-300 rounded-md p-2 focus:border-blue-light focus:shadow-custom-combined focus-visible:outline-none'
                 />
               </div>
             </div>
             <hr className='m-[2rem_auto_2rem_auto] w-full border border-neutral-200' />
-            <div className='flex gap-4'>
+            <div className='w-1/2 flex gap-4'>
               <div className='flex-1'>
-                <Label htmlFor='city' className='text-sm font-medium'>
-                  Nationality
+                <Label htmlFor='country' className='text-sm font-medium'>
+                  Country
                 </Label>
                 <Select
                   value={formData.nationality}
                   onValueChange={(value) => handleChange('nationality', value)}
                 >
                   <SelectTrigger id='country' className=''>
-                    <SelectValue placeholder='Select Nationality' />
+                    <SelectValue placeholder='Select Country' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='nigerian'>Nigerian</SelectItem>
-                    <SelectItem value='ghanian'>Ghanian</SelectItem>
-                    <SelectItem value='kenyan'>Kenyan</SelectItem>
+                    <SelectItem value='nigerian'>Nigeria</SelectItem>
+                    <SelectItem value='ghanian'>Ghana</SelectItem>
+                    <SelectItem value='kenyan'>Kenya</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
             <hr className='m-[2rem_auto_2rem_auto] w-full border border-neutral-200' />
-            <div>
-              <div className='flex items-center mb-4'>
-                <h3 className='text-base font-semibold mr-4 text-neutral-900'>
-                  Address to use
-                </h3>
-              </div>
-              <Label htmlFor='address' className='text-sm font-medium'>
-                Street Address
-              </Label>
-              <Input
-                id='address'
-                value={formData.address}
-                onChange={(e) => handleChange('address', e.target.value)}
-                placeholder='Enter Address'
-                className='mt-2'
-              />
-            </div>
-
             <div className='flex gap-4'>
+              <div className='flex-[1/2] w-[49%]'>
+                <Label htmlFor='address' className='text-sm font-medium'>
+                  Street Address
+                </Label>
+                <Input
+                  id='address'
+                  value={formData.address}
+                  onChange={(e) => handleChange('address', e.target.value)}
+                  placeholder='Enter Address'
+                  className='mt-2'
+                />
+              </div>
+
               <div className='flex-1'>
                 <Label htmlFor='state' className='text-sm font-medium'>
                   State
@@ -156,7 +157,10 @@ const AddCompanyMemberTwo = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className='flex-1'>
+            </div>
+
+            <div className='flex gap-4'>
+              <div className='flex-[1/2] w-[49%]'>
                 <Label htmlFor='city' className='text-sm font-medium'>
                   City
                 </Label>
@@ -174,8 +178,6 @@ const AddCompanyMemberTwo = () => {
                   </SelectContent>
                 </Select>
               </div>
-            </div>
-            <div className='flex gap-4'>
               <div className='flex-[1/2] w-[49%]'>
                 <Label htmlFor='state' className='text-sm font-medium'>
                   Zip Code
@@ -190,40 +192,23 @@ const AddCompanyMemberTwo = () => {
               </div>
             </div>
           </div>
-
-          <DocumentUpload />
-          <div className='w-[42.25rem] h-[6.3125rem] flex flex-col gap-2'>
-            <h3 className='text-base font-semibold mr-4 text-neutral-900'>
-              Equity
-            </h3>
-            <div className='flex-[1/2] w-[49%]'>
-              <Label htmlFor='equity' className='text-sm font-medium'>
-                Percentage of Ownership
-              </Label>
-              <Input
-                id='equity'
-                value={formData.equity}
-                onChange={(e) => handleChange('equity', e.target.value)}
-                placeholder='Enter percentage of ownership: 0% - 100%'
-                className='mt-2 border border-gray-300 rounded-md p-2 focus:border-blue-light focus:shadow-custom-combined focus-visible:outline-none'
-              />
-            </div>
-          </div>
-          <div className='mt-8 flex justify-between'>
-            <Button variant='outline' onClick={closeModal}>
-              Go Back
+        </Card>
+        <div className='flex justify-end h-24 p-8 overflow-hidden'>
+          <div className='w-1/2 flex justify-between ml-[16.5rem]'>
+            <Button variant='outline' onClick={closeEditCompanyMemberModal}>
+              Cancel
             </Button>
             <Button
-              className='bg-neutral-700 px-7 hover:bg-[rgba(0,0,0,.7)]'
+              className='bg-blue-base px-7 hover:bg-blue-600'
               onClick={handleSubmit}
             >
-              Add Company Member
+              Save Changes
             </Button>
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   );
 };
 
-export default AddCompanyMemberTwo;
+export default EditCompanyMember;

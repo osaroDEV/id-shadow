@@ -56,6 +56,27 @@ const ActionItems = () => {
       deadline: '12/09/2024',
       action: 'Upload',
     },
+    {
+      title: 'Make Payment',
+      description:
+        "You're required to upload signatures for members of the company for the C&C Form",
+      deadline: '12/09/2024',
+      action: 'Upload',
+    },
+    {
+      title: 'Make Payment',
+      description:
+        "You're required to upload signatures for members of the company for the C&C Form",
+      deadline: '12/09/2024',
+      action: 'Upload',
+    },
+    {
+      title: 'Make Payment',
+      description:
+        "You're required to upload signatures for members of the company for the C&C Form",
+      deadline: '12/09/2024',
+      action: 'Upload',
+    },
   ];
 
   return (
@@ -77,8 +98,8 @@ const ActionItems = () => {
         </div>
         <div
           className={clsx('flex gap-2', {
-            inline: pathname === '/dashboard/home',
-            hidden: pathname === '/recommendation',
+            inline: pathname === '/dashboard',
+            hidden: pathname === '/dashboard_/recommendation',
           })}
         >
           <span
@@ -99,8 +120,8 @@ const ActionItems = () => {
       <div
         ref={scrollRef}
         className={clsx('flex gap-4', {
-          'overflow-x-hidden scroll-smooth': pathname === '/dashboard/home',
-          'flex-wrap': pathname === '/recommendation',
+          'overflow-x-hidden scroll-smooth': pathname === '/dashboard',
+          'flex-wrap': pathname === '/dashboard_/recommendation',
         })}
       >
         {items.map((item, index) => (

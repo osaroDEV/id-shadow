@@ -1,5 +1,6 @@
 'use client';
 
+
 import ActionItems from '@/app/components/dashboard/ActionItems';
 import CircularProgress from '@/app/components/dashboard/CircularProgress';
 import Image from 'next/image';
@@ -13,7 +14,7 @@ import {
   ToolboxRecIcon,
 } from '@/app/components/icons/Icons';
 
-export default function CompanyInfo() {
+export default function Recommendation() {
   return (
     <div className='flex flex-col gap-16'>
       <section>
@@ -43,7 +44,7 @@ export default function CompanyInfo() {
             <span className='text-[#F17B2C] text-xs font-medium bg-[#FEF3EB] p-[.25rem_.5rem] rounded'>
               Pending registration
             </span>
-            <CircularProgress percentage={78} />
+            <CircularProgress percentage={64} />
           </div>
         </div>
         <div className='w-[30%] h-[10.875rem] p-6 rounded-xl bg-white border border-neutral-200'>

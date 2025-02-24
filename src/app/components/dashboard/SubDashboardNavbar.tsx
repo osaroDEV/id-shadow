@@ -15,7 +15,7 @@ const SubDashboardNavbar = () => {
           />
         </Link>
         <div className='w-[0.0625rem] h-10 bg-black'></div>
-        <Link href='/dashboard/home'>
+        <Link href='/dashboard'>
           <span className='flex items-center gap-2'>
             <HouseLineIcon /> Dashboard
           </span>
